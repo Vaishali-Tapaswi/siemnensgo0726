@@ -8,7 +8,7 @@ Struct EmpMgr
 	slice of Emp (private)
 	r methods - add (Emp) 
 	         print(all emps)
-
+main - add 3 emps and print 
 Lab14 - Lab8.go 
 	
 	package main
