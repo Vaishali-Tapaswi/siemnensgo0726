@@ -1,3 +1,53 @@
+Lab14 - Lab8.go 
+	
+	package main
+	
+	import "fmt"
+	
+	func main() {
+		sl1 := make([]int, 3)
+		fmt.Println(sl1)
+		sl1[0]=1
+		sl1[1]=5
+		sl1[2]=53
+		fmt.Println("Sl1 " , sl1, "len" , len(sl1), "cap", cap(sl1))
+		sl1 = append(sl1, 4)
+		fmt.Println("Sl1 " , sl1, "len" , len(sl1), "cap", cap(sl1))
+		sl1 = append(sl1, 5)
+		fmt.Println("Sl1 " , sl1, "len" , len(sl1), "cap", cap(sl1))
+		sl1 = append(sl1, 6)
+		
+		fmt.Println("Sl1 " , sl1, "len" , len(sl1), "cap", cap(sl1))
+		sl1 = append(sl1, 7)
+		
+		fmt.Println("Sl1 " , sl1, "len" , len(sl1), "cap", cap(sl1))
+		
+	
+		
+	}
+	
+
+Lab13 - Lab7.go 
+	package main
+	
+	import "fmt"
+	
+	func main() {
+		var a [2]string
+		a[0] = "Hello"
+		a[1]="World"
+		primes := [6]int{2, 3, 5, 7, 11, 13}
+		fmt.Println(a)
+		fmt.Println(primes)
+		sl1 := primes[2:4]
+		fmt.Println("Sl1" , sl1)
+		sl1[3]= 111
+		fmt.Println("Sl1 " , sl1, "len" , len(sl1), "cap", cap(sl1))
+		fmt.Println(primes)
+		
+	}
+
+
 Lab12 - Lab6.go
 Create Emp struct -> empno, ename, salary 
 Write 2 receiver methods - 1. print 
