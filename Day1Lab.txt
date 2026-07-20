@@ -1,3 +1,21 @@
+Lab7 - scan
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Enter Your Name")
+	//func Scanln(a ...any) (n int, err error)
+	var name string
+	no1, err := fmt.Scanln(&name)
+	fmt.Println("no1= ", no1, "err = ", err)
+	fmt.Println("In Main ", name)
+}
+
+Scan age for user and print 
+	-> age int -> try just enter, 10a, A10 
+
+
 Lab6 - create two files - Lab6.go and Lab6Helper.go 
 Lab6.go
 		package main
