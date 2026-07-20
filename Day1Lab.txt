@@ -1,3 +1,39 @@
+Lab12 - Lab6.go
+Create Emp struct -> empno, ename, salary 
+Write 2 receiver methods - 1. print 
+						   2. salaryIncr(percent)
+
+Lab11 (Lab5.go) 
+package main
+import "fmt"
+type Vertex struct {
+	X int
+	Y int
+}
+func print(v Vertex){
+	fmt.Println("Vertex Details ", v.X, v.Y)
+}
+func (v Vertex) print1(){
+	fmt.Println("Vertex Details Original", v.X, v.Y)
+	v.X  += 10
+	v.Y += 20 
+	// variable is by val
+	fmt.Println("Vertex Details Modified", v.X, v.Y)
+}
+
+func main(){
+	v1 := Vertex{}
+	fmt.Println(v1)
+	v1 = Vertex{Y:80}
+	fmt.Println(v1)
+	v1 = Vertex{10,40}
+	fmt.Println(v1)
+	print(v1)
+	v1.print1()
+	print(v1)
+}
+
+
 Lab10(Lab4.go)
 	package main
 	
