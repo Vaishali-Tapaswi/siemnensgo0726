@@ -8,6 +8,7 @@ func main() {
 	fmt.Println(len(os.Args))
 	fmt.Println(len(os.Args[0]))
 }
+---- print sum of string length of all the arguments
 
 Lab4 - Write a function to accept 2 string and swap and return 
 Lab3 - Create a function 
