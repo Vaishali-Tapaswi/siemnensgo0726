@@ -1,3 +1,56 @@
+
+Lab8 - Create a folder demo2
+Lab1 - input as function 
+package main
+import "fmt"
+// modify code to invoke add/ sub in calc 
+
+func print(str string, fn func(str string) ){
+	fn("aaa")
+}
+func printhello(){
+	fmt.Println("Print Hello ")
+}
+func printbye(str1 string){
+	fmt.Println("Print Bye " , str1)
+}
+
+func main(){
+	fmt.Println("Starting main ")
+	print()
+}
+
+Lab2 - function output and closure 
+package main
+import "fmt"
+
+func adder() func (int) int {
+	fmt.Println("adder is invoked ")
+	sum := 0
+	return func(no int) int {
+		sum += no 
+		return sum
+	}
+}
+
+
+func m1() func (){
+	fmt.Println("m1 is invoked ")
+	return func(){
+		fmt.Println("test function ")
+	}
+}
+func main(){
+	fp := m1()
+	fp()
+	fp1 := adder()
+	fmt.Println(fp1(10))
+	fmt.Println(fp1(10))
+	fmt.Println(fp1(10))
+	fmt.Println(fp1(10))
+	fmt.Println(fp1(10))
+}
+----------------------------------------------
 Asgn1
 Accept a number from user and print Fibonacci series till that number
 Asgn2 
