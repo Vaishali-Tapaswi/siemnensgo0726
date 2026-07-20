@@ -1,3 +1,31 @@
+Lab4 - Write a function to accept 2 string and swap and return 
+Lab3 - Create a function 
+package main
+
+import "fmt"
+
+func help(str string) (string, int) {
+	fmt.Println("Help ", str)
+	return "hello,"+str, 1
+}
+func main() {
+	fmt.Println("Main - 1")
+ 	str, no1 := help("SimpleINput")
+	fmt.Println(str, no1)
+}
+
+
+Lab2 - package main
+import "fmt"
+func main() {
+	var str = "aaaaaa"
+	i := 100
+	i, j := 10000,1
+	fmt.Println("str =", str," i = ",i,"j",j)
+}
+
+
+
 Lab1 - https://pkg.go.dev/
         https://go.dev/tour/
 Create a folder - demo1
