@@ -1,3 +1,14 @@
+Lab5 - package main
+
+import "fmt"
+import "os"
+
+func main() {
+	fmt.Println(os.Args)
+	fmt.Println(len(os.Args))
+	fmt.Println(len(os.Args[0]))
+}
+
 Lab4 - Write a function to accept 2 string and swap and return 
 Lab3 - Create a function 
 package main
