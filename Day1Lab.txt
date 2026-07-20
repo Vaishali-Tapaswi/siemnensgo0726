@@ -1,3 +1,32 @@
+Lab9 (Lab3.go )
+package main
+
+import "fmt"
+
+func print(){
+	for i:=0;i<5;i++{
+		defer fmt.Println(i)
+	}
+}
+func help(){
+	i :=0
+	fmt.Println("Help line1 ")
+	defer func(){
+		fmt.Println("Help line2 ", i )
+	}()
+	fmt.Println("i = ", 100 / i)
+	
+	//defer fmt.Println("Help line2 ", i )
+	
+	i = 30000
+	fmt.Println("Help line3 ")
+}
+func main(){
+	fmt.Println("Hello")
+	defer help()
+	fmt.Println("World")
+	print()
+}
 
 Lab8 - Create a folder demo2
 Lab1 - input as function 
