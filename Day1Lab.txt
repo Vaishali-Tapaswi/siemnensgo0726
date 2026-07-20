@@ -1,3 +1,14 @@
+Day1.go 
+Struct Emp 
+	var -empno, ename ,salary 
+	r methods - print
+			  incrSalary 
+	
+Struct EmpMgr 
+	slice of Emp (private)
+	r methods - add (Emp) 
+	         print(all emps)
+
 Lab14 - Lab8.go 
 	
 	package main
