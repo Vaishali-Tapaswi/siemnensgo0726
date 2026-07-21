@@ -1,0 +1,25 @@
+Lab1  - in demo3 folder - Interfaces 
+    package main 
+    
+    import "fmt"
+    type Vertex struct {
+    	X int
+    	Y int
+    }
+    // some standard -> methods 
+    type MyInter1 interface {
+    	simplemethod()
+    }
+    func (v *Vertex) print1(){
+    	fmt.Println("Vertex Details Original", v.X, v.Y)
+    }
+    func (v Vertex) simplemethod(){
+    	fmt.Println("Simple Method ", v.X, v.Y)
+    }
+    func main(){
+    	v1:=Vertex{10,5}
+    	v1.print1()
+    	var myint1 MyInter1
+    	myint1 = v1
+    	myint1.simplemethod()
+      }
