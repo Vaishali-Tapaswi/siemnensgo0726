@@ -1,28 +1,34 @@
 Lab6 - Channel
 	package main
+
+import (
+	"fmt"
+	"time"
+	"strconv"
+)
+func sender(ch chan string){
+	defer close(ch)
+	for i := 1; i <= 5; i++ {
+		fmt.Println("---in count " ,i) 
+		ch <- "Simple"  + strconv.Itoa(i);
+		time.Sleep(time.Millisecond * 100)
+	}
 	
-	import (
-		"fmt"
-		"time"
-	)
-	func sender(ch chan string){
-		ch <- "str1"
-		fmt.Println("sent str1")
-	
+}
+
+func rec (ch chan string) {
+	fmt.Println("Getting data from channel")
+	for msg := range ch { 
+			fmt.Println("Got ", msg)
 	}
-	func rec (ch chan string) {
-		fmt.Println("Getting data from channel")
-		str := <-ch 
-		fmt.Println("Got ", str)
-	}
-	func main(){
-		ch := make(chan string,1)
-		fmt.Println("channel created")
-		go rec(ch)
-		time.Sleep(10 * time.Second)
-		go sender(ch)
-		time.Sleep(5 * time.Second)
-	}
+}
+func main(){
+	ch := make(chan string,1)
+	fmt.Println("channel created")
+	go rec(ch)
+	go sender(ch)
+	time.Sleep(15 * time.Second)
+}
 Lab5 - Lab3.go 
 		Pizza, Burger, Momos 
 		which thread completed first 
