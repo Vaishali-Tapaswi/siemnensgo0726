@@ -1,3 +1,29 @@
+Lab2 - create a folder Lab2
+        create a file readprop.go 
+            package main
+            import (
+            	"fmt"
+            	"github.com/magiconair/properties"
+            )
+            func main() {
+            	
+            	p := properties.MustLoadFile("./config.properties", properties.UTF8)
+            	fmt.Println(p)
+            }
+    go build/run readprop.go -> watch errors 
+    cmd>set GOPATH (READ) 
+        modify 
+    cmd>set GOPATH=C:\temp
+    cmd>set GOPATH (READ to confirm )
+    cmd in Lab2 folder>go mod init readprop 
+                observe go.mod file getting created
+    cmd in Lab2 folder>go mod tidy 
+                observe go.mod file getting changed, go.sum getting created and downloaded files in gopath(c:\temp)
+    check API and show port and host 
+
+
+
+
 Lab1  - in demo3 folder - Interfaces 
     package main 
     
