@@ -71,6 +71,77 @@ json.Unmarshal
 Add loggin details to the same - store log in demo file 
 	search for log 
 
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "log"
+    "os"
+)
+
+//convert json to go structure
+
+type User struct {
+    Name     string  `json:"name"`
+    Language string  `json:"language"`
+    ID       string  `json:"id"`
+    Bio      string  `json:"bio"`
+    Version  float64 `json:"version"`
+}
+
+//json.Marshal() -> convert go structure to json
+//json.Unmarshal() -> convert json to go structure
+
+//--------
+//Add logging details and store it in demo file
+/*
+    Search for log
+    set log file name
+    set log format
+    set log level
+*/
+
+func main() {
+
+	
+    logFile, err := os.OpenFile("demo.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+    if err != nil {
+        log.Fatal(err)
+    }
+	defer logFile.Close()
+    log.SetOutput(logFile)
+
+    user := User{
+        Name:     "XYZ Name",
+        Language: "English",
+        ID:       "12345",
+        Bio:      "Software Developer",
+        Version:  1.0,
+    }
+
+    jsonData, err := json.Marshal(user)
+    if err != nil {
+        log.Panic(err)
+    }
+    log.Println("Encoded JSON:", string(jsonData))
+    fmt.Println("Encoded JSON:", string(jsonData))
+
+    recoverjson := json.Unmarshal(jsonData, &user)
+
+    if recoverjson != nil {
+        log.Panic(recoverjson)
+        panic(recoverjson)
+    }
+    log.Println("Recovered User:", user)
+    fmt.Println("Recovered User:", user)
+
+    //json to go structure
+    //json.Unmarshal()
+    log.Println("Completed Task")
+
+}
+
 
 Lab2 - create a folder Lab2
         create a file readprop.go 
