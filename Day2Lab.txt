@@ -25,12 +25,12 @@ Lab2 - create a folder Lab2
             	
             	p := properties.MustLoadFile("./config.properties", properties.UTF8)
             	fmt.Println(p)
-        	if port, ok := p.Get("port"); ok {    	
-        		fmt.Println(port)
-        	}
-        	if host, ok := p.Get("host"); ok {    
-        		fmt.Println(host)
-        	}
+	        	if port, ok := p.Get("port"); ok {    	
+	        		fmt.Println(port)
+	        	}
+	        	if host, ok := p.Get("host"); ok {    
+	        		fmt.Println(host)
+	        	}
 
             }
     go build/run readprop.go -> watch errors 
