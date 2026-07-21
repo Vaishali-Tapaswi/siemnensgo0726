@@ -1,3 +1,61 @@
+Lab5 - Lab3.go 
+		Pizza, Burger, Momos 
+		which thread completed first 
+Lab4 - Demo4 folder - Go ROutines 
+	Lab1 - go 
+		package main
+		
+		import (
+			"fmt"
+			"time"
+		)
+		
+		func main(){
+			go print("Hello")
+			go print("World")
+			//Option1 - sleep
+			//time.Sleep(1 * time.Second)
+			//fmt.Println("Done !!!")
+			//Option2 - ask for some input
+			//Option3 - some communication with goroutines
+		}
+		func print(str string){
+			for i:=0;i<5;i++{
+				fmt.Println(str)
+			}
+		}
+	run -> observe main will not wait
+		uncomment - sleep 
+	run 
+
+	Lab2.go - time slice 
+		package main
+		
+		import (
+			"fmt"
+			
+		)
+		
+		func main(){
+			go print(".")
+			go print("*")
+			go print("-")
+			
+			//Option1 - sleep
+			//Option2 - ask for some input
+			no:=0
+			fmt.Println("Press a number to stop ")
+			fmt.Scan(&no)
+			//Option3 - some communication with goroutines
+		}
+		func print(str string){
+			for i:=0;i<5000;i++{
+				fmt.Print(str)
+				
+			}
+		}
+
+
 Lab3 - use https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json 
 convert json to go struct (https://transform.tools/json-to-go)
 
