@@ -1,3 +1,53 @@
+Lab8 - modify syntax for wg.Go(task1)
+Lab7 - waitgroup
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+	"sync"
+)
+
+var flag bool
+
+func main() {
+	str := "No"
+
+	var wg sync.WaitGroup
+	wg.Add(3)
+	go func() {
+		defer wg.Done()
+		selectFood("Pizza", &str)
+	}()
+	go func() {
+		defer wg.Done()
+		selectFood("Burger", &str)
+	}()
+	go func() {
+		defer wg.Done()
+		selectFood("Pasta", &str)
+	}()
+
+	fmt.Println("Food selected BEFORE: ", str)
+	wg.Wait()
+	fmt.Println("Food selected AFTER: ", str)
+
+}
+
+func selectFood(food string, str *string) {
+	for i := 0; i < 10 && !flag; i++ {
+		k := time.Duration(rand.Intn(500))
+		time.Sleep(k * time.Millisecond)
+		fmt.Println(food, i)
+	}
+	if !flag {
+		*str = food
+		flag = true
+	}
+}
+
+
 Lab6 - 
 	Write one struct as bank with balance as field 
 	Write two function - deposit and widraw with for loop of 100 where its +/- 1 for balance 
