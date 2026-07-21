@@ -1,3 +1,13 @@
+Lab6 - 
+	Write one struct as bank with balance as field 
+	Write two function - deposit and widraw with for loop of 100 where its +/- 1 for balance 
+		{
+			tmp = bank.Balance
+			tmp+=1
+			bank.Balance = tmp
+		}
+	Write main function to create  deposit and  widraw  and show final balance . 
+
 Lab6 - Channel
 	package main
 
