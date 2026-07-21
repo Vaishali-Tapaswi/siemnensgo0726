@@ -1,3 +1,19 @@
+Lab3 - use https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json 
+convert json to go struct (https://transform.tools/json-to-go)
+
+
+"encoding/json”
+
+
+json.Marshal()
+
+json.Unmarshal
+
+------------------
+Add loggin details to the same - store log in demo file 
+	search for log 
+
+
 Lab2 - create a folder Lab2
         create a file readprop.go 
             package main
