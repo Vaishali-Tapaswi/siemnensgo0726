@@ -9,6 +9,13 @@ Lab2 - create a folder Lab2
             	
             	p := properties.MustLoadFile("./config.properties", properties.UTF8)
             	fmt.Println(p)
+        	if port, ok := p.Get("port"); ok {    	
+        		fmt.Println(port)
+        	}
+        	if host, ok := p.Get("host"); ok {    
+        		fmt.Println(host)
+        	}
+
             }
     go build/run readprop.go -> watch errors 
     cmd>set GOPATH (READ) 
@@ -19,7 +26,12 @@ Lab2 - create a folder Lab2
                 observe go.mod file getting created
     cmd in Lab2 folder>go mod tidy 
                 observe go.mod file getting changed, go.sum getting created and downloaded files in gopath(c:\temp)
-    check API and show port and host 
+create config.properties 
+host=localhost
+port=8080
+
+        check API and show port and host 
+                
 
 
 
