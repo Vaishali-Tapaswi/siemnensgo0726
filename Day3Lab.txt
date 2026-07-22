@@ -6,17 +6,19 @@ package main
 import (
 	"fmt"
     "database/sql"
+
 	_ "github.com/go-sql-driver/mysql"
 
 )
 
 func main(){
 	
-	db, err := sql.Open("mysql","admin:MyPassword!23@tcp(34.122.44.197:3306)/dbname")
+	db, err := sql.Open("mysql","admin:MyPassword!23@tcp('34.122.44.197':3306)/test")
 	fmt.Println("db", db, "err", err)
 	rows, err1 := db.Query("insert into emp values (11,'AAA',11000)")
 	fmt.Println("rows", rows, "err1", err1)
 }
+
 
 cmd>go mod init name 
 cmd>go mod tidy 
