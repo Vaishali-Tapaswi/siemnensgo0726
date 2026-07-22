@@ -1,3 +1,29 @@
+Lab8  - based on method - show different message
+	package main
+	
+	import (
+		"fmt"
+		"net/http"
+		
+	)
+	func rootHandler(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "<html><h1>Index Page</h1>")
+		fmt.Println(r.Method)
+	
+	}
+	func pageHandler(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "<html><h1>MyPage Page</h1>")
+	}
+	
+	func main() {
+	
+		http.HandleFunc("/", rootHandler)
+		http.HandleFunc("/my", pageHandler)
+		http.ListenAndServe(":8080", nil)
+	}
+	
+	
+
 Lab7 - Demo6/Lab2
 	package main
 	
