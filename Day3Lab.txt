@@ -1,12 +1,50 @@
+Lab5 - Coverage
+go test Lab1_test.go Lab1.go --cover
+go test -v Lab1_test.go Lab1.go -coverprofile tmp.txt
+go tool cover -html=tmp.txt -o tmp.html
+
+func TestDivideDenominatorNonNumber(t *testing.T) {
+  _, err := Divide("10", "a")
+  if err == nil {
+    t.Errorf("Divide(\"10\", \"a\") did not return an error")
+  }  
+  // check error type / message 
+}
+
+func TestDivideNumeratorNonNumber(t *testing.T) {
+  _, err := Divide("a", "10")
+  if err == nil {
+    t.Errorf("Divide(\"a\", \"10\") did not return an error")
+  }
+}
+
+func TestDivideByzero(t *testing.T) {
+  _, err := Divide("10", "0")
+  if err == nil {
+    t.Errorf("Divide(\"10\", \"0\") did not return an error")
+  } else {
+	//t.Errorf("")
+	//check exact message 
+  }
+
+
+
 Lab4- Testing - Demo6 folder 
 Add divide method to Lab1 
 
-func Divide(s1, s2 string) (int, error) {
-	n1, err := strconv.Atoi(s1)
-		return 0, err (if err is not nil )
-	n2, err := strconv.Atoi(s2)
-	return 0, err 
-	return n1/n2, nil
+func Divide(a, b string) (int, error) {
+  m, err := strconv.Atoi(a)
+  if err != nil {
+    return 0, err
+  }
+  n, err := strconv.Atoi(b)
+  if err != nil {
+    return 0, err
+  }
+  if n == 0 {
+    return 0, errors.New("Second arg should be nonzero")
+  }
+  return m/n, nil
 }
 Write 2 test cases 
 	Divide(10,3)
