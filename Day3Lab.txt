@@ -1,4 +1,89 @@
 Lab3 - Modify Lab2 
+--------------
+package main 
+
+type Emp struct {
+	Empno  int    `json:"empno"`
+	Ename  string `json:"ename"`
+	Salary float64   `json:"salary"`
+}
+--------------
+package main
+import (
+	 "database/sql"
+	 _ "github.com/lib/pq" 
+)
+type EmpDAO struct {
+}
+func (e *EmpDAO) List() ([]Emp, error) {
+	dsn := "postgres://postgres:MyPassword!23@35.226.182.49/postgres?sslmode=disable"
+    db, err := sql.Open("postgres", dsn)
+    if err != nil {
+        return nil, err
+    }
+    defer db.Close()
+
+    rows, err := db.Query("select * from emp")
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+    var emps []Emp
+
+    for rows.Next() {
+        emp := Emp{}
+        err := rows.Scan(&emp.Empno, &emp.Ename, &emp.Salary)
+        if err != nil {
+            return nil, err
+        }
+        emps = append(emps, emp)
+    }
+    return emps, nil
+
+}
+
+
+func (e *EmpDAO) Insert(emp *Emp) error {
+    //open connection
+   dsn := "postgres://postgres:MyPassword!23@35.226.182.49/postgres?sslmode=disable"
+   
+    db, err := sql.Open("postgres", dsn)
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    //insert record
+    row, err := db.Exec("insert into emp(empno, ename, salary) values($1, $2, $3)", emp.Empno, emp.Ename, emp.Salary)
+    if err != nil {
+        return err
+    }
+    _, err = row.RowsAffected(); 
+    return  err	
+
+}
+
+
+--------------
+package main
+import (
+	"fmt"
+   
+)
+
+func main(){
+   empdao := EmpDAO{}
+	emp:= Emp {2,"bbb",2222.22}
+	fmt.Println(empdao.Insert(&emp))	
+
+   _, err:=empdao.List()
+   fmt.Println("done", err)
+
+}
+--------------
+
+
+
 Struct Emp 
 	Empno, Ename, Salary
 Struct EmpDAO {}
