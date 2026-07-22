@@ -1,3 +1,15 @@
+Lab6 - Benchmarking 
+
+go test Lab1_test.go Lab1.go -bench=.
+go test Lab1_test.go Lab1.go -bench=. -v  -test.count=100
+go test Lab1_test.go Lab1.go -bench=. -v -test.count=100 -test.benchtime=1s
+
+func BenchmarkAdd(b *testing.B) {
+        for n := 0; n < b.N; n++ {
+               Add(10,1)
+        }
+	}
+
 Lab5 - Coverage
 go test Lab1_test.go Lab1.go --cover
 go test -v Lab1_test.go Lab1.go -coverprofile tmp.txt
