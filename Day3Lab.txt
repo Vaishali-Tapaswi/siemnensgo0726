@@ -1,3 +1,38 @@
+Lab3 - Modify Lab2 
+Struct Emp 
+	Empno, Ename, Salary
+Struct EmpDAO {}
+	2 methods -> insert (Emp) {
+					Open connection
+					insert 
+					close 
+				}
+				 list () []Emp {
+					open connection 
+					create slice 
+					close connection 
+					
+func main (){
+	test code 
+
+Lab2 - package main
+package main
+import (
+	"fmt"
+    "database/sql"
+	 _ "github.com/lib/pq" 
+
+)
+
+func main(){
+   dsn := "postgres://postgres:MyPassword!23@35.226.182.49/postgres?sslmode=disable"
+    db, err := sql.Open("postgres", dsn)
+ 	fmt.Println("db", db, "err", err)
+	rows, err1 := db.Query("insert into emp values (11,'AAA',11000)")
+	fmt.Println("rows", rows, "err1", err1)
+}
+
+
 Lab1 - create folder demo5
     create folder Lab1-mysql 
 -------in go packages - search - mysql, postgres, mongodb, dynamodb (gorm diff)
