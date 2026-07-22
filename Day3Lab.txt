@@ -1,3 +1,46 @@
+Lab4- Testing - Demo6 folder 
+Add divide method to Lab1 
+
+func Divide(s1, s2 string) (int, error) {
+	n1, err := strconv.Atoi(s1)
+		return 0, err (if err is not nil )
+	n2, err := strconv.Atoi(s2)
+	return 0, err 
+	return n1/n2, nil
+}
+Write 2 test cases 
+	Divide(10,3)
+	Divide(10,"a")
+	Divide("a", 10)
+
+
+package main
+
+import "fmt"
+
+func Add(no1, no2 int) int {
+	return no1+no2
+}
+
+func main(){
+	fmt.Println(Add(10,033))
+}
+
+Lab1_test.go
+package main
+
+import "testing"
+
+func TestAdd(t *testing.T) {
+    got := Add(10,11)
+    if got != 21 {
+        t.Errorf("Add(10,11) = %d; want 21", got)
+    }
+}
+cmd> go test Lab1_test.go Lab1.go 
+cmd> go test Lab1_test.go Lab1.go -v
+
+
 Lab3 - Modify Lab2 - to shift dsn only once
 Write two more methods in EmpDAO
 func (e *EmpDAO) Update(emp *Emp) error 
