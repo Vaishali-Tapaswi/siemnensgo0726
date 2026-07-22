@@ -1,4 +1,9 @@
-Lab3 - Modify Lab2 
+Lab3 - Modify Lab2 - to shift dsn only once
+Write two more methods in EmpDAO
+func (e *EmpDAO) Update(emp *Emp) error 
+func (e *EmpDAO) Delete(empno) error 
+
+
 --------------
 package main 
 
