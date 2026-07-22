@@ -1,4 +1,4 @@
-Lab8  - based on method - show different message
+Lab8  - Modify post method to convert input to emp object (show using fmt)
 package main
 
 import (
