@@ -1,4 +1,14 @@
-local Library and user module 
+Lab2 - Docker 
+	docker images 
+	docker ps 
+	docker run -d nginx 
+	docker ps -> no port mapping 
+	docker run -d -P nginx 
+	docker ps -> check random ports
+	docker run -d -p 8080:80 nginx 
+	docker ps -> check 8080 port mappned, invoke on browser and check 
+
+Lab1 - local Library and user module 
     create a folder Demo7
     create a folder Demo7\calclib    
     create a folder Demo7\calccaller
