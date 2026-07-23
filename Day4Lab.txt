@@ -1,0 +1,44 @@
+local Library and user module 
+    create a folder Demo7
+    create a folder Demo7\calclib    
+    create a folder Demo7\calccaller
+
+    create add.go in calclib folder 
+        package pkgcalc
+        func add(a, b int) int {
+        	return a+b
+        }
+
+    create Sub.go in calclib folder 
+        package pkgcalc
+        func sub(a, b int) int {
+        	return a-b
+        }
+    create lab1.go in calccaller folder 
+package main
+import "fmt"
+// module name from calclib
+import "fands.com/pkgcalc"
+
+
+func main(){
+	fmt.Println("Add of 10 and 20 is ", pkgcalc.add(10,20))
+	fmt.Println("Add of 100 and 20 is ", pkgcalc.sub(100,20))
+}
+    1. Create Library 
+		cmd in mylib folder
+		cmd>go mod init fands.com/pkgcalc
+		cmd>go mod tidy
+    2. Create a client code for library 
+		cmd in calccaller folder 
+		cmd>go mod init clientcode
+		cmd>go mod edit -replace fands.com/pkgcalc=..\calclib11
+				no check of directory/...
+		cmd>go mod tidy
+			will give error  go: clientcode imports .. replacement directory ..\mylib11 does not exist
+		cmd>go mod edit -replace fands.com/pkgcalc=..\calclib
+		cmd>go mod tidy
+			success->go: found fands.com/mylib in fands.com/mylib v0.0.0-00010101000000-000000000000
+		cmd>go run . (Also please check add / Add)
+    3. create executable and check 
+
