@@ -28,6 +28,12 @@ go build Lab1.go
 create a folder dockerdemo
 2 files - 1. lab1 (linux compiled version)
 		  2. dockerfile 
+
+FROM ubuntu
+COPY lab1 ./
+EXPOSE 8080
+CMD ["./lab1"]
+
 cmd>docker build . -t mygoimg
 cmd>docker run -d -p 8080:8080 mygoimg
 cmd>docker run -d -p 8085:8080 mygoimg
