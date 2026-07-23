@@ -1,3 +1,37 @@
+Lab3 - create docker image 
+1. Go code getting ready for ubuntu
+Create Lab1.go 
+		package main
+
+		import (
+			"fmt"
+			"net/http"
+		)
+		func main() {
+			roothhandle := func(w http.ResponseWriter, r *http.Request) {
+				fmt.Fprintf(w, "<html><h1>Index Page</h1>")
+			}
+			pageHandler := func(w http.ResponseWriter, r *http.Request) {
+				fmt.Fprintf(w, "<html><h1>Custom Page</h1>")
+				}
+			http.HandleFunc("/", roothhandle)
+			http.HandleFunc("/my", pageHandler)
+			http.ListenAndServe(":8080", nil)
+		}
+
+cmd>go build Lab1.go -> lab1.exe
+set GOOS=linux
+set GOARCH=amd64
+go build Lab1.go
+
+2. Docker Image using dockerfile 
+create a folder dockerdemo
+2 files - 1. lab1 (linux compiled version)
+		  2. dockerfile 
+cmd>docker build . -t mygoimg
+cmd>docker run -d -p 8080:8080 mygoimg
+cmd>docker run -d -p 8085:8080 mygoimg
+
 Lab2 - Docker 
 	docker images 
 	docker ps 
